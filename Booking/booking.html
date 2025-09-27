@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty Parlour Booking</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+  <div class="booking-container">
+    <h1>💄 Beauty Parlour Appointment</h1>
+    <form id="bookingForm" class="booking-form" autocomplete="off">
+        <label for="name">पूरा नाम</label>
+        <input id="name" name="name" type="text" required />
+
+        <label for="phone">मोबाइल नंबर</label>
+        <input id="phone" name="phone" type="tel" pattern="[0-9]{10}" placeholder="10 digit" required />
+
+        <label for="product">Choose Product:</label>
+        <select id="product" required>
+          <option value="">-- Select --</option>
+          <option value="1">Product 1 - ₹1</option>
+          <option value="100">Product A - ₹100</option>
+          <option value="250">Product B - ₹250</option>
+          <option value="500">Product C - ₹500</option>
+        </select>
+
+        <label>Your UPI ID:</label>
+        <input type="text" id="upiId" value="9893398929@ybl" readonly />
+
+        <label>Your Name:</label>
+        <input type="text" id="upiName" value="My Shop" />
+
+        <div id="qrcode"><div style="color:#888;font-size:14px;">Please select a product.</div></div>
+
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" required>
+
+        <label for="time">Select Time:</label>
+        <input type="time" id="time" required>
+
+        <!-- Payment Buttons -->
+        <button type="button" id="payNow" class="btn">Book Appointment & Pay Now</button>
+        <button type="submit" class="btn btn-primary">Book Appointment & Pay Later</button>
+
+        <p class="note">Note: 15% Instant Discount At Pay Now</p>
+    </form>
+  </div>
+
+  <script>
+    const productSelect = document.getElementById("product");
+    const upiIdInput = document.getElementById("upiId");
+    const upiNameInput = document.getElementById("upiName");
+    const qrcodeEl = document.getElementById("qrcode");
+    const payBtn = document.getElementById("payNow");
+
+    function buildUpiLink({pa, pn, am, tn}) {
+      return `upi://pay?pa=${encodeURIComponent(pa)}&pn=${encodeURIComponent(pn)}&am=${encodeURIComponent(am)}&cu=INR&tn=${encodeURIComponent(tn)}`;
+    }
+
+    function generateCurrentQR(){
+      const amtRaw = productSelect.value;
+      const upiId = upiIdInput.value.trim();
+      const upiName = upiNameInput.value.trim() || 'Payee';
+      if(!amtRaw || !upiId){
+        qrcodeEl.innerHTML = "<div style='color:#888;font-size:14px;padding:10px'>पहले Product चुनें।</div>";
+        payBtn.disabled = true;
+        return;
+      }
+      const orderRef = 'ORD'+Date.now().toString().slice(-6);
+      const upiLink = buildUpiLink({pa:upiId, pn:upiName, am:amtRaw, tn:`Order:${orderRef}`});
+
+      qrcodeEl.innerHTML = "";
+      new QRCode(qrcodeEl, {
+        text: upiLink,
+        width: 220,
+        height: 220
+      });
+
+      qrcodeEl.dataset.upi = upiLink;
+      payBtn.disabled = false;
+    }
+
+    productSelect.addEventListener("change", generateCurrentQR);
+
+    payBtn.addEventListener("click", ()=>{
+      const link = qrcodeEl.dataset.upi;
+      if(link) {
+        // Open UPI App
+        window.location.href = link;
+        // Redirect after 5 seconds
+        setTimeout(()=>{
+          window.location.href = "success.html";
+        }, 5000);
+      }
+    });
+
+    // Handle "Pay Later" (form submit)
+    document.getElementById("bookingForm").addEventListener("submit", (e)=>{
+      e.preventDefault();
+      alert("Appointment booked (Pay Later selected).");
+    });
+  </script>
+</body>
+</html>

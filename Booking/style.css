@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  background:#f4f4f9;
+  margin:0;
+  padding:20px;
+  display:flex;
+  justify-content:center;
+}
+
+
+.booking-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  width: 350px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #d6336c;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+select, input, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  background: #d6336c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background: #a71d4f;
+}

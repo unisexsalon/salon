@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Beauty by Unisex — Parlor & Makeup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="nav-root">
+    <div class="container nav-container">
+      <a href="#home" class="brand" aria-label="Beauty by [Your Name] home">
+        <!-- Simple SVG logo -->
+        <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="10" fill="#F06292"/>
+          <path d="M7 12c0-3 5-6 5-6s5 3 5 6-2.2 4-5 4-5-1-5-4z" fill="#fff"/>
+        </svg>
+        <span class="brand-text">BeautyBy<span class="accent">RK</span></span>
+      </a>
+
+      <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="मेन्यू खोलें">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav id="primary-menu" class="nav" role="navigation">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#services">Services</a></li>
+          <li><a class="nav-link" href="#packages">Packages</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+        
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Placeholder sections for scroll targets -->
+  <main>
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Welcome to Beauty By RK</h1>
+        <p>Professional makeup, bridal services &amp; beauty packages. See our gallery and book online.</p>
+        <a class="btn btn-secondary" href="Booking/booking.html">Book Appointment</a>
+        
+      </div>
+    </section>
+
+
+<section id="gallery">
+  <h2>Our Work</h2>
+  
+  <!-- Photos -->
+  <div class="photo-gallery">
+    <img src="images/makeup1.jpg" alt="Makeup Look 1">
+    <img src="images/makeup2.jpg" alt="Makeup Look 2">
+    <img src="images/makeup3.jpg" alt="Makeup Look 3">
+  </div>
+
+  <!-- Videos -->
+  <div class="video-gallery">
+    <!-- YouTube video -->
+    <iframe src="https://www.youtube.com/embed/watch?v=FOvOxeb2TCg&list=RDFOvOxeb2TCg&start_radio=1" 
+            title="YouTube video"
+            allowfullscreen></iframe>
+
+
+
+    <!-- Instagram video -->
+   <iframe 
+  src="https://www.instagram.com/p/CeAuoQBB68c/embed"
+  width="400"
+  height="480"
+  frameborder="0"
+  scrolling="no"
+  allowtransparency="true">
+</iframe>
+  
+
+  </div>
+</section>
+
+
+
+
+
+<section id="services">
+  <h2>Our Services & Packages</h2>
+  <div class="service-container">
+
+    <!-- Service 1 -->
+    <div class="service-card">
+      <h3>Bridal Makeup</h3>
+      <p>Full bridal makeup with hair styling and saree draping.</p>
+      <span class="price">₹15,000</span>
+      <button class="book-btn" href = "Booking/booking.html">Book Now</button>
+
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-card">
+      <h3>Party Makeup</h3>
+      <p>Light & glamorous makeup perfect for events and parties.</p>
+      <span class="price">₹3,000</span>
+      <button class="book-btn">Book Now</button>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-card">
+      <h3>Facial & Skincare</h3>
+      <p>Glow facials and premium skincare treatments.</p>
+      <span class="price">₹1,200</span>
+      <button class="book-btn">Book Now</button>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="service-card">
+      <h3>Hair Styling</h3>
+      <p>Trendy haircuts, coloring, and styling packages.</p>
+      <span class="price">₹800</span>
+      <button class="book-btn">Book Now</button>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<footer id="footer">
+  <div class="footer-container">
+
+    <!-- Contact Info -->
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p>📍 123, MG Road, Indore</p>
+      <p>📞 +91 98765 43210</p>
+      <p>📧 info@beautyparlour.com</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#booking">Book Appointment</a></li>
+      </ul>
+    </div>
+
+    <!-- Map -->
+    <div class="footer-section">
+      <h3>Find Us</h3>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.4419283193936!2d75.8577!3d22.7196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396302f0b1c8ef5f%3A0xcee6bb3e6d3cc8ff!2sIndore!5e0!3m2!1sen!2sin!4v1691584412365" 
+        width="100%" 
+        height="200" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
